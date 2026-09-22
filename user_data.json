@@ -1,0 +1,93 @@
+[
+    {
+        "id": "1790013461.97605",
+        "nom_kebab": "Atlas Royal Rouen",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    },
+    {
+        "id": "1790013477.072448",
+        "nom_kebab": "Station Grill 76",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    },
+    {
+        "id": "1790013493.563105",
+        "nom_kebab": "CROC'PIZZA",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    },
+    {
+        "id": "1790013505.724209",
+        "nom_kebab": "FOOD'YS",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    },
+    {
+        "id": "1790013514.064572",
+        "nom_kebab": "Le Soleil du Maghreb - Saint Sever",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    },
+    {
+        "id": "1790013520.628314",
+        "nom_kebab": "Croq Select St Sever Rouen",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    },
+
+    {
+        "id": "1790097907.709387",
+        "nom_kebab": "OZ FOOD",
+        "date_visite": "2026-09-22",
+        "note": 4.5,
+        "prix": 9.5,
+        "commentaire": "Généreux, très accueillant, les frites sont un peu en deçà mais le lieu est agréable",
+        "simple_visite": false
+    },
+    {
+        "id": "1790097983.683953",
+        "nom_kebab": "Le Mistral",
+        "date_visite": "2026-09-10",
+        "note": 4.5,
+        "prix": 10.0,
+        "commentaire": null,
+        "simple_visite": false
+    },
+    {
+        "id": "1790097989.750195",
+        "nom_kebab": "Le Mistral",
+        "date_visite": "2026-09-05",
+        "note": 4.5,
+        "prix": 10.0,
+        "commentaire": null,
+        "simple_visite": false
+    },
+    {
+        "id": "1790098023.931878",
+        "nom_kebab": "Le Soleil Du Maghreb",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    }
+]
