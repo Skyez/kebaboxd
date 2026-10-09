@@ -7,7 +7,8 @@ import json
 import os
 import locale
 
-locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
+try:
+    locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
 
 # Configuration de la page en mode "wide"
 st.set_page_config(page_title="Kebaboxd", page_icon="🥙", layout="wide")
