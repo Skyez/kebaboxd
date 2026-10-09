@@ -53,7 +53,6 @@
         "commentaire": null,
         "simple_visite": true
     },
-
     {
         "id": "1790097907.709387",
         "nom_kebab": "OZ FOOD",
@@ -89,5 +88,32 @@
         "prix": null,
         "commentaire": null,
         "simple_visite": true
+    },
+    {
+        "id": "1791561552.545419",
+        "nom_kebab": "O'HDV fast food",
+        "date_visite": null,
+        "note": null,
+        "prix": null,
+        "commentaire": null,
+        "simple_visite": true
+    },
+    {
+        "id": "1791561715.655275",
+        "nom_kebab": "OZ FOOD",
+        "date_visite": "2026-10-08",
+        "note": 3.5,
+        "prix": 11.4,
+        "commentaire": "Testé le smash burger, plutôt sympa. N'a pas trop aidé pour le tournoi futsal de l'après-midi cependant.",
+        "simple_visite": false
+    },
+    {
+        "id": "1791562124.766607",
+        "nom_kebab": "Grill istanbul",
+        "date_visite": "2026-10-01",
+        "note": 4.0,
+        "prix": 11.5,
+        "commentaire": "Un tacos deux viandes comme on en voit rarement. \nUn incontournable de la région, le fait qu'il faille le mesurer en mètre carré est un plus.\nDédicace au regretté Kebab de la Cité, sa descendance reprend le flambeau ici.",
+        "simple_visite": false
     }
 ]

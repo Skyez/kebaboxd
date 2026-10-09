@@ -1,14 +1,16 @@
 import streamlit as st
 import pandas as pd
 import folium
-from folium import Element
 from streamlit_folium import st_folium
 import datetime
 import json
 import os
+import locale
+
+locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
 
 # Configuration de la page en mode "wide"
-st.set_page_config(page_title="Kebabboxd", page_icon="🥙", layout="wide")
+st.set_page_config(page_title="Kebaboxd", page_icon="🥙", layout="wide")
 
 # Gestion de la navigation via les paramètres URL
 if "p" in st.query_params:
@@ -446,7 +448,7 @@ else:
                 st.markdown("### 🏆 Général")
                 col1, col2, col3 = st.columns(3)
                 with col1:
-                    st.metric("Total de visites", total_visites)
+                    st.metric("Total de visites", total_visites, f"depuis le {first_date.strftime('%d %B %Y')}", delta_color="off")
                     st.metric("Pokédex", pokedex_str)  # Remplacement effectué ici
                 with col2:
                     st.metric("Note moyenne globale", f"{moyenne_notes} / 5")
@@ -458,9 +460,9 @@ else:
                 st.markdown("### 📈 Rythme & Winstreaks")
                 col4, col5, col6, col7 = st.columns(4)
                 with col4:
-                    st.metric("Moyenne / Semaine", f"{avg_per_week} Kebabs/Sem", f"soit un K/D de {kd_ratio}", delta_color="off")
+                    st.metric("Moyenne / Semaine", f"{avg_per_week} Kebabs", f"soit un K/D de {kd_ratio}", delta_color="off")
                 with col5:
-                    st.metric("Moyenne / Mois", f"{avg_per_month} Kebabs/Mois")
+                    st.metric("Moyenne / Mois", f"{avg_per_month} Kebabs")
                 with col6:
                     st.metric("Winstreak Actuelle 🔥", f"{current_streak} sem.")
                 with col7:
