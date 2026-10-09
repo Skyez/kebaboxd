@@ -377,7 +377,7 @@ else:
             if not st.session_state.entries:
                 st.info("Tu n'es pas allé voir ton Maître Kebabier depuis longtemps...")
             else:
-                total_visites = len(st.session_state.entries)
+                total_visites = len([e for e in st.session_state.entries if e and e.get('date_visite') is not None])
                 
                 # Calcul Pokédex (visités uniques / total dans le CSV)
                 visités_uniques_set = set(e.get('nom_kebab') for e in st.session_state.entries if e.get('nom_kebab'))
