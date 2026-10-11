@@ -141,7 +141,7 @@ if supabase and not st.session_state.user:
   )
   st.markdown(
       "<p style='text-align: center; color: #9ab; margin-bottom:"
-      " 30px;'>Connecte-toi pour accéder à ton journal de kebabs.</p>",
+      " 30px;'>Bienvenue dans le monde sacré du Kebab.</p>",
       unsafe_allow_html=True,
   )
 
@@ -421,125 +421,11 @@ if "selected_kebab_nom" not in st.session_state:
 
 current_page = st.session_state.nav_page
 
-# --- PERSONNALISATION ESTHÉTIQUE & CSS CONDITIONNEL ---
-if current_page == "🗺️ Carte" and not st.session_state.selected_kebab_nom:
-  st.markdown(
-      """
-        <style>
-        /* 1. ANNULATION TOTALE DU HEADER NATIF STREAMLIT */
-        [data-testid="stHeader"], 
-        .stAppHeader, 
-        [data-testid="stDecoration"], 
-        [data-testid="stToolbar"],
-        [data-testid="stHeader"] * { 
-            display: none !important; 
-            visibility: hidden !important; 
-            height: 0px !important; 
-            min-height: 0px !important;
-            max-height: 0px !important;
-            background: transparent !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-            z-index: -9999 !important;
-        }
-
-        [data-testid="stSidebar"] { display: none !important; }
-
-        /* 2. MISE EN PAGE PLEIN ÉCRAN SANS ZONES MORTES */
-        html, body, [data-testid="stAppViewContainer"], .stApp, .main, [data-testid="stMain"], [data-testid="stMainBlockContainer"] {
-            overflow: hidden !important;
-            height: 100vh !important;
-            width: 100vw !important;
-            background-color: #14181c !important;
-            color: #9ab;
-            margin: 0 !important;
-            padding: 0 !important;
-            top: 0 !important;
-        }
-        
-        .block-container, [data-testid="block-container"], [data-testid="stMainBlockContainer"] {
-            padding: 0rem !important;
-            margin: 0rem !important;
-            max-width: 100% !important;
-            height: 100vh !important;
-            max-height: 100vh !important;
-            overflow: hidden !important;
-            top: 0 !important;
-        }
-
-        /* 3. L'IFRAME DE LA CARTE OCCUPE TOUT LE VIEWPORT */
-        div[data-testid="stElementContainer"]:has(iframe),
-        div[data-testid="stIframe"],
-        div[data-testid="stIFrame"] > iframe,
-        iframe {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            border: none !important;
-            display: block !important;
-            z-index: 10 !important;
-        }
-        </style>
-    """,
-      unsafe_allow_html=True,
-  )
-else:
-  st.markdown(
-      """
-        <style>
-        /* Autoriser le scroll sur les pages textuelles et la fiche kebab */
-        html, body, [data-testid="stAppViewContainer"], .stApp {
-            background-color: #14181c;
-            color: #9ab;
-            overflow-x: hidden !important;
-            overflow-y: auto !important;
-        }
-        .block-container {
-            padding-top: 2rem !important;
-            padding-bottom: 90px !important;
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
-        }
-        [data-testid="stHeader"], .stAppHeader { 
-            display: none !important; 
-            visibility: hidden !important; 
-            height: 0px !important; 
-        }
-        [data-testid="stSidebar"] { display: none; }
-
-        .stForm {
-            background-color: #1c2228;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #2c3440;
-        }
-
-        [data-testid="stFormSubmitButton"] button {
-            background-color: #00e054 !important;
-            color: #14181c !important;
-            font-weight: bold !important;
-            font-size: 16px !important;
-            border: none !important;
-            border-radius: 8px !important;
-            padding: 10px 24px !important;
-            transition: all 0.2s ease !important;
-            width: 100%;
-        }
-        [data-testid="stFormSubmitButton"] button:hover {
-            background-color: #00c048 !important;
-            transform: scale(1.02);
-        }
-        </style>
-    """,
-      unsafe_allow_html=True,
-  )
-
-# CSS commun pour la barre de navigation flottante, le titre et le bouton compte
+# --- CSS COMMUN ET PERMANENT INJECTÉ DÈS LE DÉBUT ---
 st.markdown(
     """
     <style>
+    /* CSS Nav bar et Top Header */
     .fixed-nav-bar {
         position: fixed;
         bottom: 30px;
@@ -639,11 +525,128 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- TITRE FLOTTANT GLOBAL + BOUTON COMPTE À DROITE ---
+# --- PERSONNALISATION ESTHÉTIQUE SPÉCIFIQUE ---
+if current_page == "🗺️ Carte" and not st.session_state.selected_kebab_nom:
+  st.markdown(
+      """
+        <style>
+        [data-testid="stHeader"], 
+        .stAppHeader, 
+        [data-testid="stDecoration"], 
+        [data-testid="stToolbar"],
+        [data-testid="stHeader"] * { 
+            display: none !important; 
+            visibility: hidden !important; 
+            height: 0px !important; 
+            min-height: 0px !important;
+            max-height: 0px !important;
+            background: transparent !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            z-index: -9999 !important;
+        }
+
+        [data-testid="stSidebar"] { display: none !important; }
+
+        html, body, [data-testid="stAppViewContainer"], .stApp, .main, [data-testid="stMain"], [data-testid="stMainBlockContainer"] {
+            overflow: hidden !important;
+            height: 100vh !important;
+            width: 100vw !important;
+            background-color: #14181c !important;
+            color: #9ab;
+            margin: 0 !important;
+            padding: 0 !important;
+            top: 0 !important;
+        }
+        
+        .block-container, [data-testid="block-container"], [data-testid="stMainBlockContainer"] {
+            padding: 0rem !important;
+            margin: 0rem !important;
+            max-width: 100% !important;
+            height: 100vh !important;
+            max-height: 100vh !important;
+            overflow: hidden !important;
+            top: 0 !important;
+        }
+
+        div[data-testid="stElementContainer"]:has(iframe),
+        div[data-testid="stIframe"],
+        div[data-testid="stIFrame"] > iframe,
+        iframe {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            border: none !important;
+            display: block !important;
+            z-index: 10 !important;
+        }
+        </style>
+    """,
+      unsafe_allow_html=True,
+  )
+else:
+  st.markdown(
+      """
+        <style>
+        html, body, [data-testid="stAppViewContainer"], .stApp {
+            background-color: #14181c;
+            color: #9ab;
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+        }
+        .block-container {
+            padding-top: 2rem !important;
+            padding-bottom: 90px !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        [data-testid="stHeader"], .stAppHeader { 
+            display: none !important; 
+            visibility: hidden !important; 
+            height: 0px !important; 
+        }
+        [data-testid="stSidebar"] { display: none; }
+
+        .stForm {
+            background-color: #1c2228;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #2c3440;
+        }
+
+        [data-testid="stFormSubmitButton"] button {
+            background-color: #00e054 !important;
+            color: #14181c !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
+            border: none !important;
+            border-radius: 8px !important;
+            padding: 10px 24px !important;
+            transition: all 0.2s ease !important;
+            width: 100%;
+        }
+        [data-testid="stFormSubmitButton"] button:hover {
+            background-color: #00c048 !important;
+            transform: scale(1.02);
+        }
+        </style>
+    """,
+      unsafe_allow_html=True,
+  )
+
+# --- INJECTION DES ÉLÉMENTS SUR-ÉLEVÉS FLOTTANTS AVANT LA CARTE (ÉVITE LE FLICKER) ---
 st.markdown(
     """
     <div class="top-header-badge">
         🥙 Kebaboxd
+    </div>
+    <div class="fixed-nav-bar">
+        <a href="?p=carte" target="_self" class="nav-btn" title="Carte">🗺️</a>
+        <a href="?p=ajouter" target="_self" class="nav-btn" title="Ajouter">🥙</a>
+        <a href="?p=diary" target="_self" class="nav-btn" title="Diary">📖</a>
+        <a href="?p=stats" target="_self" class="nav-btn" title="Stats">📊</a>
     </div>
 """,
     unsafe_allow_html=True,
@@ -671,7 +674,6 @@ if current_page == "🗺️ Carte" and st.session_state.selected_kebab_nom:
   ]
   k_data = kebab_matches.iloc[0] if not kebab_matches.empty else None
 
-  # Vérification si l'utilisateur actuel l'a visité
   mes_visites = [
       e
       for e in st.session_state.entries
@@ -680,7 +682,6 @@ if current_page == "🗺️ Carte" and st.session_state.selected_kebab_nom:
   visites_effectuees = [e for e in mes_visites if not e.get("simple_visite")]
   est_deja_visite = len(mes_visites) > 0
 
-  # Note moyenne et nombre de visites de l'utilisateur connecté
   mes_notes = [
       e.get("note") for e in visites_effectuees if e.get("note") is not None
   ]
@@ -689,17 +690,14 @@ if current_page == "🗺️ Carte" and st.session_state.selected_kebab_nom:
   )
   nb_mes_visites = len(visites_effectuees)
 
-  # Charger tous les avis de la communauté pour ce kebab
   all_reviews = load_all_kebab_reviews(nom_kebab_sel)
 
-  # Tri chronologique inverse (du plus récent au plus ancien)
   all_reviews_sorted = sorted(
       all_reviews,
       key=lambda x: str(x.get("date_visite") or "1900-01-01"),
       reverse=True,
   )
 
-  # Calcul de la note moyenne globale (tous utilisateurs confondus)
   all_notes = [
       r.get("note") for r in all_reviews_sorted if r.get("note") is not None
   ]
@@ -713,7 +711,6 @@ if current_page == "🗺️ Carte" and st.session_state.selected_kebab_nom:
       st.session_state.selected_kebab_nom = None
       st.rerun()
 
-    # Statut sous forme d'indice/badge plus petit aligné avec le nom
     if est_deja_visite:
       badge_html = (
           "<span style='font-size: 0.45em; vertical-align: middle;"
@@ -740,7 +737,6 @@ if current_page == "🗺️ Carte" and st.session_state.selected_kebab_nom:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Statistiques communautaires et personnelles
     m1, m2 = st.columns(2)
     with m1:
       st.metric(
@@ -755,7 +751,6 @@ if current_page == "🗺️ Carte" and st.session_state.selected_kebab_nom:
           f"parmi {len(all_reviews_sorted)} avis"
       )
 
-    # Mini carte de localisation du kebab
     if (
         k_data is not None
         and pd.notna(k_data.get("lat"))
@@ -873,7 +868,13 @@ elif current_page == "🗺️ Carte":
         icon=folium.Icon(color=color, icon="cutlery", prefix="fa"),
     ).add_to(m)
 
-  map_data = st_folium(m, width=None, height=1000, use_container_width=True)
+  map_data = st_folium(
+      m,
+      width=None,
+      height=1000,
+      use_container_width=True,
+      returned_objects=["last_object_clicked"],
+  )
 
   if map_data and map_data.get("last_object_clicked"):
     clicked_lat = map_data["last_object_clicked"]["lat"]
@@ -888,19 +889,16 @@ elif current_page == "🗺️ Carte":
       st.session_state.selected_kebab_nom = matched.iloc[0]["nom"]
       st.rerun()
 
-# Pour les pages de texte, on utilise une colonne centrale
 else:
   st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
 
   _, center_col, _ = st.columns([0.15, 0.7, 0.15])
 
   with center_col:
-    # --- MESSAGE FLASH DE CONFIRMATION ---
     if "flash_message" in st.session_state and st.session_state.flash_message:
       st.success(st.session_state.flash_message)
       st.session_state.flash_message = None
 
-    # --- PAGE 2 : AJOUTER ---
     if current_page == "🥙 Ajouter":
       st.markdown(
           '<h2 style="margin-bottom: 25px;">🥙 Ajouter un repas'
@@ -928,7 +926,6 @@ else:
             st.session_state.kebabs_df["nom"] == choix_kebab
         ].iloc[0]
 
-        # Comptage des simples visites déjà enregistrées pour ce kebab
         nb_simples_visites = len([
             e
             for e in st.session_state.entries
@@ -1048,7 +1045,6 @@ else:
                 st.session_state.flash_message = msg_template.format(kebab=choix_kebab)
               st.rerun()
 
-    # --- PAGE 3 : DIARY ---
     elif current_page == "📖 Diary":
       st.markdown(
           '<h2 style="margin-bottom: 45px;">📖 La Bible</h2>',
@@ -1111,7 +1107,6 @@ else:
                 st.rerun()
             st.divider()
 
-    # --- PAGE 4 : STATS ---
     elif current_page == "📊 Stats":
       st.markdown(
           '<h2 style="margin-bottom: 40px;">📊 Tes Statistiques</h2>',
@@ -1217,7 +1212,6 @@ else:
                 else:
                   break
 
-        # Affichage des métriques
         st.markdown("### 🏆 Général")
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -1263,7 +1257,6 @@ else:
         with col7:
           st.metric("Meilleure Winstreak 👑", f"{max_streak} sem.")
 
-        # Section Graphiques
         if valid_dates:
           st.divider()
           st.markdown("### 📊 Tendances")
@@ -1295,16 +1288,3 @@ else:
           with c_chart2:
             st.markdown("**Évolution mensuelle**")
             st.line_chart(mois_counts, height=250, color="#00e054")
-
-# --- BARRE DE NAVIGATION FLOTTANTE UNIVERSELLE ---
-st.markdown(
-    """
-    <div class="fixed-nav-bar">
-        <a href="?p=carte" target="_self" class="nav-btn" title="Carte">🗺️</a>
-        <a href="?p=ajouter" target="_self" class="nav-btn" title="Ajouter">🥙</a>
-        <a href="?p=diary" target="_self" class="nav-btn" title="Diary">📖</a>
-        <a href="?p=stats" target="_self" class="nav-btn" title="Stats">📊</a>
-    </div>
-""",
-    unsafe_allow_html=True,
-)
